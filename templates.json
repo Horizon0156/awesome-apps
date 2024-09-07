@@ -166,7 +166,7 @@
       "categories": ["Webhosting"],
       "note": "Access the blog management interface under <code>/ghost/</code>.",
       "platform": "linux",
-      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ghost.png",
+      "logo": "https://djeqr6to3dedg.cloudfront.net/repo-logos/library/ghost/live/logo-1722384580757.png",
       "image": "ghost:latest",
       "ports": ["2368/tcp"],
       "volumes": [
@@ -231,6 +231,7 @@
         "type": 1,
         "title": "CCU",
         "description": "homematicIP CCU based on RaspberryMatic.",
+        "note": "When you are using the HmIP RF USB dongle, you have to load the driver on the host. Write the following to <i> /etc/udev/rules.d/99-Homematic.rules </i>:<br><code>ACTION==\"add\", ATTRS{idVendor}==\"1b1f\", ATTRS{idProduct}==\"c020\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c 'echo 1b1f c020 > /sys/bus/usb-serial/drivers/cp210x/new_id'\"</code>",
         "categories": ["Smart Home"],
         "platform": "linux",
         "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwishapplist.monwindows.com%2Fimages%2Flogos%2Fcache%2Fhomematic-ip_9a9d980_150_150.jpg&f=1&nofb=1&ipt=b1fe259039945725dd3bdd91bd547e30d71f21e5e4cd43d61e78ff8f33ae1d04&ipo=images",
@@ -258,6 +259,7 @@
         "env": [
             {
                 "name": "TZ",
+                "label": "Timezone",
                 "default": "Europe/Berlin"
             }
         ],
@@ -277,7 +279,7 @@
         "image": "lucaslorentz/caddy-docker-proxy:latest",
         "ports": ["80:80/tcp", "443:443/tcp"],
         "restart_policy": "unless-stopped",
-        "note": "Containers are exposed when having the following labels:<br><ul><li>caddy: service.example.com </li><li>caddy.reverse_proxy: \"{{upstreams 80}}\"</li></ul>",
+        "note": "Containers are exposed when having the following labels attached:<br><code>caddy: service.example.com </code><br><code>caddy.reverse_proxy: \"{{upstreams 80}}\"</code>",
         "env": [
             {
                 "name": "CADDY_INGRESS_NETWORKS",
@@ -288,7 +290,8 @@
         "volumes": [
           {
             "container": "/var/run/docker.sock",
-            "bind": "/var/run/docker.sock"
+            "bind": "/var/run/docker.sock",
+            "readonly": true
           },
           {
             "container": "/data"
