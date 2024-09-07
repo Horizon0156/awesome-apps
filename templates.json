@@ -1,0 +1,332 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 1,
+      "title": "Registry",
+      "description": "Docker image registry",
+      "categories": ["Storage"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png",
+      "image": "registry:latest",
+      "ports": ["5000/tcp"],
+      "volumes": [
+        {
+          "container": "/var/lib/registry"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "Alpine",
+      "description": "A minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!",
+      "categories": ["Operating System"],
+      "platform": "linux",
+      "logo": "https://djeqr6to3dedg.cloudfront.net/repo-logos/library/alpine/live/logo-1720462146426.png",
+      "image": "alpine:latest",
+      "interactive": true,
+      "command": "/bin/sh"
+    },
+    {
+      "type": 1,
+      "title": "nginx",
+      "description": "High performance web server",
+      "categories": ["Webhosting"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/nginx.png",
+      "image": "nginx:latest",
+      "ports": ["80/tcp", "443/tcp"],
+      "volumes": [
+        {
+          "container": "/etc/nginx"
+        },
+        {
+          "container": "/usr/share/nginx/html"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "Caddy",
+      "description": "Open-source web server with automatic HTTPS written in Go",
+      "categories": ["Webhosting"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png",
+      "image": "caddy:latest",
+      "ports": ["80/tcp"],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "PostgreSQL",
+      "description": "The most advanced open-source database",
+      "categories": ["Database"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/postgres.png",
+      "image": "postgres:latest",
+      "env": [
+        {
+          "name": "POSTGRES_USER",
+          "label": "Superuser"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Superuser password"
+        }
+      ],
+      "ports": ["5432/tcp"],
+      "volumes": [
+        {
+          "container": "/var/lib/postgresql/data"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "MongoDB",
+      "description": "Open-source document-oriented database",
+      "categories": ["Database"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png",
+      "image": "mongo:latest",
+      "ports": ["27017/tcp"],
+      "volumes": [
+        {
+          "container": "/data/db"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "Minio",
+      "description": "A distributed object storage server built for cloud applications and devops",
+      "categories": ["Storage"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/minio.png",
+      "image": "quay.io/minio/minio:latest",
+      "ports": ["9000/tcp", "9001/tcp"],
+      "env": [
+        {
+          "name": "MINIO_ROOT_USER",
+          "label": "Root user"
+        },
+        {
+          "name": "MINIO_ROOT_PASSWORD",
+          "label": "Root password"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/data"
+        },
+        {
+          "container": "/root/.minio"
+        }
+      ],
+      "command": "server /data --console-address ':9001'"
+    },
+    {
+      "type": 1,
+      "title": "Redis",
+      "description": "Open-source in-memory data structure store",
+      "categories": ["Database"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png",
+      "image": "redis:latest",
+      "ports": ["6379/tcp"],
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "RabbitMQ",
+      "description": "Highly reliable enterprise messaging system",
+      "categories": ["Messaging"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
+      "image": "rabbitmq:latest",
+      "ports": ["5671/tcp", "5672/tcp"],
+      "volumes": [
+        {
+          "container": "/var/lib/rabbitmq"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "Ghost",
+      "description": "Free and open-source blogging platform",
+      "categories": ["Webhosting"],
+      "note": "Access the blog management interface under <code>/ghost/</code>.",
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ghost.png",
+      "image": "ghost:latest",
+      "ports": ["2368/tcp"],
+      "volumes": [
+        {
+          "container": "/var/lib/ghost/content"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "title": "File browser",
+      "description": "A web file manager",
+      "note": "Default credentials: admin/admin",
+      "categories": ["Storage"],
+      "platform": "linux",
+      "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
+      "image": "filebrowser/filebrowser:latest",
+      "ports": ["80/tcp"],
+      "volumes": [
+        {
+          "container": "/data"
+        },
+        {
+          "container": "/srv"
+        }
+      ],
+      "command": "--port 80 --database /data/database.db --root /srv"
+    },
+    {
+      "type": 1,
+      "title": "Node-RED",
+      "description": "Low-code programming for event-driven applications.",
+      "categories": ["Smart Home"],
+      "platform": "linux",
+      "logo": "https://www.gravatar.com/avatar/f6f37d429a9c6575007e1c72798e0de5?s=120&r=g&d=404",
+      "image": "nodered/node-red:latest",
+      "ports": ["1880/tcp"],
+      "restart_policy": "unless-stopped",
+      "volumes": [
+        {
+          "container": "/data"
+        }
+      ]
+    },
+    {
+        "type": 1,
+        "title": "Actual",
+        "description": "Fast and privacy-focused app for managing your finances.",
+        "categories": ["Finances"],
+        "platform": "linux",
+        "logo": "https://avatars.githubusercontent.com/u/37879538?s=48&v=4",
+        "image": "actualbudget/actual-server:latest-alpine",
+        "ports": ["5006/tcp"],
+        "restart_policy": "unless-stopped",
+        "volumes": [
+          {
+            "container": "/data"
+          }
+        ]
+    },
+    {
+        "type": 1,
+        "title": "CCU",
+        "description": "homematicIP CCU based on RaspberryMatic.",
+        "categories": ["Smart Home"],
+        "platform": "linux",
+        "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwishapplist.monwindows.com%2Fimages%2Flogos%2Fcache%2Fhomematic-ip_9a9d980_150_150.jpg&f=1&nofb=1&ipt=b1fe259039945725dd3bdd91bd547e30d71f21e5e4cd43d61e78ff8f33ae1d04&ipo=images",
+        "image": "ghcr.io/jens-maus/raspberrymatic:latest",
+        "ports": ["80/tcp", "2010:2010/tcp", "8181:8181/tcp", "9292:9292/tcp"],
+        "restart_policy": "unless-stopped",
+        "hostname": "homematic-raspi",
+        "privileged": true,
+        "volumes": [
+          {
+            "container": "/usr/local"
+          }
+        ]
+    },
+    {
+        "type": 1,
+        "title": "Homebridge",
+        "description": "Homebridge allows you to integrate with smart home devices that do not natively support HomeKit.",
+        "categories": ["Smart Home"],
+        "platform": "linux",
+        "logo": "https://avatars.githubusercontent.com/u/38217527?s=48&v=4",
+        "image": "homebridge/homebridge:latest",
+        "network": "host",
+        "restart_policy": "unless-stopped",
+        "env": [
+            {
+                "name": "TZ",
+                "default": "Europe/Berlin"
+            }
+        ],
+        "volumes": [
+          {
+            "container": "/homebridge"
+          }
+        ]
+    },
+    {
+        "type": 1,
+        "title": "Caddy (Docker Proxy)",
+        "description": "This plugin enables Caddy to be used as a reverse proxy for Docker containers via labels.",
+        "categories": ["Webhosting"],
+        "platform": "linux",
+        "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png",
+        "image": "lucaslorentz/caddy-docker-proxy:latest",
+        "ports": ["80:80/tcp", "443:443/tcp"],
+        "restart_policy": "unless-stopped",
+        "note": "Containers are exposed when having the following labels:<br><ul><li>caddy: service.example.com </li><li>caddy.reverse_proxy: \"{{upstreams 80}}\"</li></ul>",
+        "env": [
+            {
+                "name": "CADDY_INGRESS_NETWORKS",
+                "label": "Ingress Network",
+                "description": "The name of the selected network (for better reliability). Only containers / services that are connected to this networks are used."
+            }
+        ],
+        "volumes": [
+          {
+            "container": "/var/run/docker.sock",
+            "bind": "/var/run/docker.sock"
+          },
+          {
+            "container": "/data"
+          }
+        ]
+    },
+    {
+        "type": 1,
+        "title": "Bitwarden",
+        "description": "An open source password manager for securely storing, managing, and sharing sensitive online data such as passwords, passkeys, and credit cards.",
+        "categories": ["Password Manager"],
+        "platform": "linux",
+        "logo": "https://avatars.githubusercontent.com/u/15990069?s=200&v=4",
+        "image": "vaultwarden/server:latest",
+        "ports": ["80/tcp"],
+        "restart_policy": "unless-stopped",
+        "env": [
+            {
+                "name": "ADMIN_TOKEN",
+                "label": "Admin Token",
+                "description": "A random, secure string used to access the Admin interface."
+            }
+        ],
+        "volumes": [
+          {
+            "container": "/data"
+          }
+        ]
+    },
+    {
+        "type": 1,
+        "title": "qdrant",
+        "description": "Vector Search Engine for the next generation of AI applications.",
+        "categories": ["Database"],
+        "platform": "linux",
+        "logo": "https://www.gravatar.com/avatar/6f450c91c113c4ddf4d9775077520314?s=120&r=g&d=404",
+        "image": "qdrant/qdrant",
+        "ports": ["6333/tcp"]
+    }
+  ]
+}
