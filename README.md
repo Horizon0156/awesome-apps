@@ -31,6 +31,7 @@ docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.
 * [Homebridge](https://homebridge.io/): Homebridge allows you to integrate with smart home devices that do not natively support HomeKit.
 * [Node-RED](https://nodered.org): A flow based programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
 * [RaspberryMatic / CCU](https://raspberrymatic.de): RaspberryMatic is a free, lightweight operating system alternative for an OpenSource-based "homematicIP CCU" under your control.
+* [Scrypted](https://www.scrypted.app): A high performance home video integration platform.
 
 ## Storage
 * [File Browser](https://filebrowser.org/): A web based file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files.
@@ -41,4 +42,5 @@ docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.
 * [Caddy](https://caddyserver.com): Open-source web server / reverse proxy with automatic HTTPS written in Go
 * [Caddy Docker Proxy](https://github.com/lucaslorentz/caddy-docker-proxy?tab=readme-ov-file#server): This plugin enables Caddy to be used as a reverse proxy for Docker containers via labels.
 * [Ghost](https://ghost.org): Free and open-source blogging platform:
+* [Homer](https://github.com/bastienwirtz/homer): A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.
 * [nginx](https://nginx.org): High performance web server.

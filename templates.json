@@ -330,6 +330,38 @@
         "logo": "https://www.gravatar.com/avatar/6f450c91c113c4ddf4d9775077520314?s=120&r=g&d=404",
         "image": "qdrant/qdrant",
         "ports": ["6333/tcp"]
+    },
+    {
+        "type": 1,
+        "title": "Homer",
+        "description": "A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.",
+        "categories": ["Webhosting"],
+        "platform": "linux",
+        "logo": "https://homer-demo.netlify.app/logo.png",
+        "image": "b4bz/homer:latest",
+        "volumes": [
+            {
+                "container": "/www/assets"
+            }
+        ],
+        "ports": ["8080/tcp"],
+        "restart_policy": "unless-stopped"
+    },
+    {
+        "type": 1,
+        "title": "Scyrpted",
+        "description": "A high performance home video integration platform.",
+        "categories": ["Smart Home"],
+        "platform": "linux",
+        "logo": "https://www.scrypted.app/images/web_hi_res_512.png",
+        "image": "ghcr.io/koush/scrypted:latest",
+        "volumes": [
+            {
+                "container": "/server/volume"
+            }
+        ],
+        "network": "host",
+        "restart_policy": "unless-stopped"
     }
   ]
 }
