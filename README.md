@@ -1,20 +1,11 @@
 # Awesome Apps
 A curated list of free services and web applications. This list just includes apps that I'm actually using or have used in the past.
 
-## Desktop Applications
-
-### Finances 
-* [Actual](https://actualbudget.org): Fast and privacy-focused app for managing your finances.
-* [Wealthfolio](https://wealthfolio.app/): A Beautiful Private and Secure Desktop Investment Tracking Application.
-
-### Password Manager
-* [Bitwarden](https://bitwarden.com): An open source password manager for securely storing, managing, and sharing sensitive online data such as passwords, passkeys, and credit cards.
-
 ## Self Hosted Apps 🐳
 
 This repo is hosting an App Template definition that can be used with Portainer. Spin up Portainer and reference the following file to use the templates:
 
-`https://raw.githubusercontent.com/Horizon0156/awesome-selfhosted/main/templates.json`
+`https://raw.githubusercontent.com/Horizon0156/awesome-apps/main/templates.json`
 
 ```
 docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
@@ -55,3 +46,12 @@ docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.
 * [Ghost](https://ghost.org): Free and open-source blogging platform:
 * [Homer](https://github.com/bastienwirtz/homer): A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.
 * [nginx](https://nginx.org): High performance web server.
+
+## Desktop Applications 💻
+
+### Finances 
+* [Actual](https://actualbudget.org): Fast and privacy-focused app for managing your finances.
+* [Wealthfolio](https://wealthfolio.app/): A Beautiful Private and Secure Desktop Investment Tracking Application.
+
+### Password Manager
+* [Bitwarden](https://bitwarden.com): An open source password manager for securely storing, managing, and sharing sensitive online data such as passwords, passkeys, and credit cards.
